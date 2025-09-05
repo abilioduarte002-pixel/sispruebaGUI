@@ -7,7 +7,7 @@
     <title>Nuevo Registro</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="{{route('ingresos.store')}}" method="POST">
     @csrf
 
     <label for="nombre">Ingrese Nombres</label>
@@ -31,7 +31,7 @@
     <label for="telefono">Numero de Telefóno</label>
     <input type="text" id="telefono" name="telefono" placeholder="Numero de Celular" required><br><br>
 
-<button type="submit"></button>
+<button type="submit">Guardar Registro</button>
 
 </form>
 </body>

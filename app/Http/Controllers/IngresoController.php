@@ -38,7 +38,16 @@ class IngresoController extends Controller
             'edad' => 'required|numeric',            
         ]);
 
-        
+             Ingreso::create([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'dpi' => $request->dpi,
+            'telefono' => $request->telefono,
+            'correo' => $request->correo,
+            'direccion' => $request->direccion,
+            'edad' => $request->edad,
+        ]);
+        return redirect()->route('ingresos.index')->with('success', 'Ingreso creado exitosamente.');   
 
     }
 
