@@ -55,17 +55,18 @@ class IngresoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ingreso $ingreso)
+    public function show($id)
     {
-        //
+        $cliente = Ingreso::find($id);
+        return view('ingresos.show', compact('cliente'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ingreso $ingreso)
+    public function edit($id)
     {
-        //
+        
     }
 
     /**

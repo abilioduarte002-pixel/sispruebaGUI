@@ -34,7 +34,7 @@
             <td>{{$cliente->direccion}}</td>
             <td align="center">{{$cliente->edad}}</td>
             <td>
-                <a href="#" class="btn btn-info">Ver</a>
+                <a href="{{route('ingresos.show', $cliente->id)}}" class="btn btn-info">Ver</a>
             </td>
             <td>
                 <a href="#" class="btn btn-success">Editar</a>
