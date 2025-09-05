@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingreso;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class IngresoController extends Controller
@@ -66,15 +67,37 @@ class IngresoController extends Controller
      */
     public function edit($id)
     {
-        
+        $cliente = Ingreso::find($id);
+        return view('ingresos.edit', compact('cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ingreso $ingreso)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string',
+            'apellido' => 'required|string',
+            'dpi' => 'required|string',
+            'telefono' => 'required|string',
+            'correo' => 'required|string',
+            'direccion' => 'required|string',
+            'edad' => 'required|numeric',
+        ]);
+
+        $cliente = Ingreso::find($id);
+        $cliente->update([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'dpi' => $request->dpi,
+            'telefono' => $request->telefono,
+            'correo' => $request->correo,
+            'direccion' => $request->direccion,
+            'edad' => $request->edad,
+        ]);
+
+        return redirect()->route('ingresos.index')->with('success', 'Ingreso actualizado exitosamente.');
     }
 
     /**

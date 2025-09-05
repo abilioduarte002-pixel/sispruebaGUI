@@ -37,7 +37,7 @@
                 <a href="{{route('ingresos.show', $cliente->id)}}" class="btn btn-info">Ver</a>
             </td>
             <td>
-                <a href="#" class="btn btn-success">Editar</a>
+                <a href="{{route('ingresos.edit', $cliente->id)}}" class="btn btn-success">Editar</a>
             </td>
             <td>
                 <form action="#" method="POST">
